@@ -1,0 +1,80 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        int noOfDice;
+        int total=0;
+        System.out.print("Enter no of dice: ");
+        noOfDice = scanner.nextInt();
+
+        if(noOfDice > 0){
+            for (int i =0; i<noOfDice; i++){
+                int roll = random.nextInt(1,6);
+                System.out.println("you rolled: " + roll);
+                total = total + roll;
+                Die(roll);
+
+            }
+            System.out.println("Total: " + total);
+        }
+        else{
+            System.out.println("Enter more than 0 dice");
+        }
+
+
+
+}
+static void Die(int roll){
+        String Dice1= """
+                 ---------
+               |           |
+               |     ·     |
+               |           |
+                 ---------
+""";
+
+
+         String Dice2= """
+                 ---------
+               |     ·     |
+               |     ·     |
+               |           |
+                 ---------
+""";
+          String Dice3= """
+                 ---------
+               |     ·     |
+               |     ·     |
+               |     ·     |
+                 ---------
+""";
+           String Dice4= """
+                 ---------
+               |  ·     · |
+               |          |
+               |  ·     · |
+                 ---------
+""";
+            String Dice5= """
+                 ---------
+               |     ·     |
+               |  ·  ·   · |
+               |     ·     |
+                 ---------
+""";
+
+            switch(roll){
+                case 1 -> System.out.println(Dice1);
+                case 2 -> System.out.println(Dice2);
+                case 3 -> System.out.println(Dice3);
+                case 4 -> System.out.println(Dice4);
+                case 5 -> System.out.println(Dice5);
+
+            }
+
+}
+}
