@@ -1,0 +1,53 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        String[] choices = {"R", "P", "S" };
+        String playerchoice;
+        String systemchoice;
+        String playagain = "yes";
+
+
+
+
+       do{
+
+        System.out.println("PLAY(R, P, S ): ");
+        playerchoice = scanner.nextLine().toUpperCase();
+
+       if(!playerchoice.equals("R") &&
+        !playerchoice.equals("P") && !playerchoice.equals("S")){
+            System.out.println("Enter valid one");
+            continue;
+        }
+
+
+        systemchoice = choices[random.nextInt(3)];
+        System.out.println("Systemchoice : " + systemchoice);
+
+        if (playerchoice.equals(systemchoice)){
+            System.out.println("TIE");
+        }
+        else if((playerchoice.equals("R") && systemchoice.equals("S")) || (playerchoice.equals("S") && systemchoice.equals("P")) || (playerchoice.equals("P") && systemchoice.equals("R"))){
+            System.out.println("You win");
+        }else{
+            System.out.println("you loose");
+        }
+
+
+         System.out.println("Play again: (yes/no)?");
+        playagain = scanner.nextLine();
+
+
+        }while(playagain.equals("yes"));
+
+
+System.out.println("GOODBYE");
+
+    }
+}
